@@ -1,0 +1,315 @@
+/*
+ * LESS | discord.com theme
+ * By anydonym.
+ */
+
+:root, [class*="layer"] .theme-light {
+  --font-primary:                 Noto Sans Display, Noto Sans, Segoe UI, sans-serif;
+  --font-display:                 Google Sans Text, Noto Sans Display, Noto Sans, Arial, sans-serif;
+  --font-headline:                Google Sans Text, Noto Sans Display, Noto Sans, Arial, sans-serif;
+  --font-code:                    Noto Sans Mono, Lucida Console, monospace;
+  --font-chinese-traditional:     Noto Sans Display, Noto Sans, Arial, sans-serif;
+  --font-chinese-simplified:      Noto Sans Display, Noto Sans, Arial, sans-serif;
+  --font-korean:                  Noto Sans Display, Noto Sans, Arial, sans-serif;
+  --font-japanese:                Noto Sans Display, Noto Sans, Arial, sans-serif;
+  
+  --background-primary:           hsl(210, 78%, 12%);
+  --background-secondary:         hsl(210, 73%, 14%);
+  --background-secondary-alt:     hsl(210, 77%, 15.2%);
+  --background-tertiary:          hsl(210, 82%, 16%);
+  --background-accent:            hsl(210, 85%, 35%);
+  --background-floating:          hsl(210, 83%, 15.8%);
+  --background-inlinecode:        #111d33;
+  --background-mlcode:            #172237;
+  --channeltextarea-background:   hsl(210, 81%, 17%);
+
+  --brand-experiment:             hsl(206, 92%, 48%);
+  
+  --header-primary:               hsl(208, 100%, 91%);
+  --header-secondary:             hsl(208, 91%, 88%);
+  --text-normal:                  hsl(205, 73%, 84%);
+  --text-muted: #72767d;
+  --text-link: hsl(197,100%,47.8%);
+  --text-link-low-saturation: hsl(197,100%,52.9%);
+  --text-positive: hsl(139,66.8%,58.6%);
+  --text-warning: hsl(38,95.7%,54.1%);
+  --text-danger: hsl(359,82.6%,59.4%);
+  --text-brand: hsl(235,86.1%,77.5%);
+  --interactive-normal: hsl(206, 87%, 90%);
+  --interactive-hover: hsl(185, 25%, 92%);
+  --interactive-active: hsl(206, 93%, 91%);
+  --interactive-muted: hsl(206, 16%, 58%);
+  --background-nested-floating: #2f3136;
+  --background-mobile-primary: var(--background-primary);
+  --background-mobile-secondary: var(--background-secondary);
+  --background-modifier-hover: rgba(79,84,92,0.16);
+  --background-modifier-active: rgba(79,84,92,0.24);
+  --background-modifier-selected: rgba(79,84,92,0.32);
+  --background-modifier-accent: hsla(0,0%,100%,0.06);
+  --info-positive-text:       #fff;
+  --info-warning-text: #fff;
+  --info-danger-text: #fff;
+  --info-help-background: hsla(197,100%,47.8%,0.1);
+  --info-help-foreground: hsl(197,100%,47.8%);
+  --info-help-text: #fff;
+  --status-warning-text: #000;
+  --scrollbar-thin-thumb: #202225;
+  --scrollbar-thin-track: transparent;
+  --scrollbar-auto-thumb: #202225;
+  --scrollbar-auto-track: hsl(210,9.8%,20%);
+  --scrollbar-auto-scrollbar-color-thumb: #202225;
+  --scrollbar-auto-scrollbar-color-track: #2f3136;
+  --elevation-stroke: 0 0 0 1px rgba(4,4,5,0.15);
+  --elevation-low: 0 1px 0 rgba(4,4,5,0.2),0 1.5px 0 rgba(6,6,7,0.05),0 2px 0 rgba(4,4,5,0.05);
+  --elevation-medium: 0 4px 4px rgba(0,0,0,0.16);
+  --elevation-high: 0 8px 16px rgba(0,0,0,0.24);
+  --logo-primary: #fff;
+  --control-brand-foreground: hsl(235,86.1%,77.5%);
+  --control-brand-foreground-new: hsl(235,86.1%,77.5%);
+  --background-mentioned: hsla(38,95.7%,54.1%,0.1);
+  --background-mentioned-hover: hsla(38,95.7%,54.1%,0.08);
+  --background-message-hover: rgba(4,4,5,0.07);
+  --channels-default: #8e9297;
+  --guild-header-text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+  --activity-card-background: #202225;
+  --textbox-markdown-syntax: #8e9297;
+  --spoiler-revealed-background: #292b2f;
+  --spoiler-hidden-background: #202225;
+  --deprecated-card-bg: rgba(32,34,37,0.6);
+  --deprecated-card-editable-bg: rgba(32,34,37,0.3);
+  --deprecated-store-bg: #36393f;
+  --deprecated-quickswitcher-input-background: #72767d;
+  --deprecated-quickswitcher-input-placeholder: hsla(0,0%,100%,0.3);
+  --deprecated-text-input-bg: rgba(0,0,0,0.1);
+  --deprecated-text-input-border: rgba(0,0,0,0.3);
+  --deprecated-text-input-border-hover: #040405;
+  --deprecated-text-input-border-disabled: #202225;
+  --deprecated-text-input-prefix: #dcddde;
+}
+
+/** Generic */
+pre, code, [class*="code"], [class*="Code"] {
+  font-family:          var(--font-code) !important;
+}
+
+// Multiline code. Uses :root to force rules
+:root pre code {
+  background:           var(--background-mlcode);
+}
+
+/** Code */
+// Inline code 
+[class*="markup"] {
+  // Message inline code preview
+  [class*="inlineCode"],
+  // Message inline code
+  code.inline {
+    background:         var(--background-inlinecode);
+  }
+}
+
+// Code blocks
+[class*="markup"] pre code {
+  border:               1px solid var(--background-accent);
+  padding:              8px;
+
+  &::before {
+    background:         var(--background-floating);
+    color:              var(--text-normal);
+
+    display:            block;
+    text-align:         center;
+    font-family:        var(--font-primary);
+    margin:             -8px;
+      margin-bottom:    8px;
+    padding:            5px 0 2px 0;
+
+    content:            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="%23d0ebf3" class="bi bi-code-slash" viewBox="0 0 16 16"><path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/></svg>');
+  }
+}
+
+/** Embed */
+// Embed wrapper
+[class*="embedWrapper"] {
+  background:           var(--background-floating);
+  box-shadow:           1px 1px 1px 1px #0003;
+
+  &:not(.container-rr3Ruk) {
+    max-width:          640px;
+  }
+
+  // File attachment embed
+  &.container-rr3Ruk {
+    width:              90%;
+    border:             1px solid var(--background-accent);
+
+    pre code::before {
+      background:       var(--background-floating);
+      color:            var(--text-normal);
+
+      display:          block;
+      text-align:       center;
+      font-family:      var(--font-primary);
+      margin:          -8px;
+        margin-bottom:  8px;
+      padding:          5px 0 2px 0;
+
+      content:          url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="%23d0ebf3" class="bi bi-file-earmark-code" viewBox="0 0 16 16"><path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/><path d="M8.646 6.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 9 8.646 7.354a.5.5 0 0 1 0-.708zm-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 9l1.647-1.646a.5.5 0 0 0 0-.708z"/></svg>');
+    }
+
+    // Footer
+    [class*="footer"] {
+      background:       var(--background-secondary-alt);
+    }
+  }
+
+  // Embed title
+  [class*="embedTitle"] {
+    font-family:        var(--font-display);
+  }
+
+  // Embed description
+  [class*="embedDescription"] {
+    text-align:         justify;
+  }
+}
+
+/** Color corrections */
+// Intentional root usage for overriding
+:root {
+  // Server Discovery tab
+  [class*="pageWrapper"],
+  // Friends tab
+  [id$="-tab"] {
+    background:         var(--background-primary);
+  }
+
+  // Modals
+  .root-g14mjS {
+    background:         var(--background-secondary);
+
+    // Modal message preview
+    .message-G6O-Wv {
+      background:       var(--background-primary);
+    }
+
+    // Modal footer
+    [class*="footer"] {
+      background:       var(--background-secondary-alt)
+    }
+  }
+}
+
+/** Highlight JS */
+.hljs, [class*="codeLine"] {
+  color:              #cdd9e5;
+
+  .hljs-comment,
+  .hljs-punctuation {
+    color:            #768390;
+  }
+
+  .hljs-attr,
+  .hljs-attribute,
+  .hljs-meta,
+  .hljs-selector-attr,
+  .hljs-selector-class,
+  .hljs-selector-id {
+    color:            #6cb6ff;
+  }
+
+  .hljs-variable,
+  .hljs-literal,
+  .hljs-number,
+  .hljs-doctag {
+    color:            #f69d50;
+  }
+
+  .hljs-params {
+    color:            #cdd9e5;
+  }
+
+  .hljs-class,
+  .hljs-tag,
+  .hljs-title,
+  .hljs-built_in {
+    color:            #8ddb8c;
+  }
+
+  .hljs-keyword,
+  .hljs-type,
+  .hljs-builtin-name,
+  .hljs-meta-keyword,
+  .hljs-template-tag,
+  .hljs-template-variable {
+    color:            #f47067;
+  }
+
+  .hljs-string,
+  .hljs-undefined {
+    color:            #96d0ff;
+  }
+
+  .hljs-regexp {
+    color:            #96d0ff;
+  }
+
+  .hljs-symbol {
+    color:            #6cb6ff;
+  }
+
+  .hljs-bullet {
+    color:            #f69d50;
+  }
+
+  .hljs-section {
+    color:            #6cb6ff;
+    font-weight:        bold;
+  }
+
+  .hljs-quote,
+  .hljs-name,
+  .hljs-selector-tag,
+  .hljs-selector-pseudo {
+    color:            #8ddb8c;
+  }
+
+  .hljs-emphasis {
+    color:            #f69d50;
+    font-style:         italic;
+  }
+
+  .hljs-strong {
+    color:            #f69d50;
+    font-weight:        bold;
+  }
+
+  .hljs-deletion {
+    color:            #ff938a;
+    background-color: #78191b;
+  }
+
+  .hljs-addition {
+    color:            #8ddb8c;
+    background-color: #113417;
+  }
+
+  .hljs-link {
+    color:            #96d0ff;
+    font-style:         underline;
+  }
+}
+
+/*** MISCELLANEOUS ***/
+// Anchors (links)
+// Chat message link preview
+[class*="fakeLink"] > span::after,
+// Message link
+[class*="anchor"][href]:not([href*="https://discord.com"]):not([href*="https://cdn.discordapp.com"]):not([href*="https://ptb.discord.com"]):not([href*="https://canary.discord.com"])::after {
+  content:              url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23a3d8f9" width="10" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/><path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/></svg>');
+}
+
+// Message file attachment
+.messageAttachment-CZp8Iv {
+  width:                100%;
+}
