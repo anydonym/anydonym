@@ -1,17 +1,12 @@
-/*
- * LESS | discord.com theme
- * By anydonym.
- */
-
 :root, [class*="layer"] .theme-light {
-  --font-primary:                 Noto Sans Display, Noto Sans, Segoe UI, sans-serif;
-  --font-display:                 Google Sans Text, Noto Sans Display, Noto Sans, Arial, sans-serif;
-  --font-headline:                Google Sans Text, Noto Sans Display, Noto Sans, Arial, sans-serif;
-  --font-code:                    Noto Sans Mono, Lucida Console, monospace;
-  --font-chinese-traditional:     Noto Sans Display, Noto Sans, Arial, sans-serif;
-  --font-chinese-simplified:      Noto Sans Display, Noto Sans, Arial, sans-serif;
-  --font-korean:                  Noto Sans Display, Noto Sans, Arial, sans-serif;
-  --font-japanese:                Noto Sans Display, Noto Sans, Arial, sans-serif;
+  --font-primary:                 Lucida Sans Unicode, Calibri, sans-serif;
+  --font-display:                 Noto Sans, Leelawadee UI, sans-serif;
+  --font-headline:                Noto Sans, Leelawadee UI, sans-serif;
+  --font-code:                    Lucida Console, Consolas, monospace;
+  --font-chinese-traditional:     Noto Sans, Arial, sans-serif;
+  --font-chinese-simplified:      Noto Sans, Arial, sans-serif;
+  --font-korean:                  Noto Sans, Arial, sans-serif;
+  --font-japanese:                Noto Sans, Arial, sans-serif;
   
   --background-primary:           hsl(210, 78%, 12%);
   --background-secondary:         hsl(210, 73%, 14%);
@@ -28,17 +23,17 @@
   --header-primary:               hsl(208, 100%, 91%);
   --header-secondary:             hsl(208, 91%, 88%);
   --text-normal:                  hsl(205, 73%, 84%);
-  --text-muted: #72767d;
+  --text-muted:                   hsl(204, 12%, 54%);
   --text-link: hsl(197,100%,47.8%);
   --text-link-low-saturation: hsl(197,100%,52.9%);
   --text-positive: hsl(139,66.8%,58.6%);
   --text-warning: hsl(38,95.7%,54.1%);
   --text-danger: hsl(359,82.6%,59.4%);
   --text-brand: hsl(235,86.1%,77.5%);
-  --interactive-normal: hsl(206, 87%, 90%);
-  --interactive-hover: hsl(185, 25%, 92%);
-  --interactive-active: hsl(206, 93%, 91%);
-  --interactive-muted: hsl(206, 16%, 58%);
+  --interactive-normal: hsl(206, 24%, 88%);
+  --interactive-hover: hsl(185, 35%, 99%);
+  --interactive-active: hsl(206, 65%, 93%);
+  --interactive-muted: hsl(206, 32%, 36%);
   --background-nested-floating: #2f3136;
   --background-mobile-primary: var(--background-primary);
   --background-mobile-secondary: var(--background-secondary);
@@ -305,7 +300,7 @@ pre, code, [class*="code"], [class*="Code"] {
 // Chat message link preview
 [class*="fakeLink"] > span::after,
 // Message link
-[class*="anchor"][href]:not([href*="https://discord.com"]):not([href*="https://cdn.discordapp.com"]):not([href*="https://ptb.discord.com"]):not([href*="https://canary.discord.com"])::after {
+[class*="anchor"][href]:not([href*="https://support.discord.com"]):not([href*="https://discord.com"]):not([href*="https://cdn.discordapp.com"]):not([href*="https://ptb.discord.com"]):not([href*="https://canary.discord.com"])::after {
   content:              url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23a3d8f9" width="10" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/><path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/></svg>');
 }
 
