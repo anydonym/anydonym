@@ -2,8 +2,6 @@
 import * as colors from 'https://deno.land/std@0.123.0/fmt/colors.ts';
 
 interface LoggerOptions {
-	name: string;
-
 	level: {
 		debug: boolean;
 		log: boolean;
@@ -15,7 +13,20 @@ interface LoggerOptions {
 }
 
 class Logger {
-	constructor(public options: LoggerOptions) {}
+	options: LoggerOptions;
+
+	constructor(options: Partial<LoggerOptions> = {}) {
+		this.options = <Required<LoggerOptions>> Object.assign({
+			'level': {
+				'debug': true,
+				'log': true,
+				'info': true,
+				'warn': true,
+				'severe': true,
+				'fatal': true,
+			},
+		}, options);
+	}
 
 	#build(level: string, ...output: any[]) {
 		return `${colors.gray(`[${new Date().toISOString()}]`)} | ${level}: ${output.join(' ')}`;
@@ -35,17 +46,17 @@ class Logger {
 
 	info(...output: any[]) {
 		if (this.options.level.info) {
-			console.log(this.#build(colors.brightGreen('info'), output));
+			console.info(this.#build(colors.brightGreen('info'), output));
 		}
 	}
 
 	warn(...output: any[]) {
 		if (this.options.level.warn) {
-			console.log(this.#build(colors.yellow('warn'), output));
+			console.warn(this.#build(colors.yellow('warn'), output));
 		}
 	}
 
-	severe(output: Error): void;
+	// severe(output: Error): void;
 	severe(...output: any[]) {
 		if (this.options.level.severe) {
 			if (output instanceof Error) {
@@ -58,18 +69,21 @@ class Logger {
 			} else {
 				const get_stk = () => {
 					const obj = {};
-					Error.captureStackTrace(obj, this.fatal);
-					return (<{ stack: any }> obj).stack;
+					Error.captureStackTrace(obj, this.severe);
+					return (<{ stack: string }> obj).stack.slice(6);
 				};
 
-				console.log(
-					this.#build(colors.red('severe'), colors.yellow(output.join(' ') + '\n' + get_stk())),
+				console.error(
+					this.#build(
+						colors.bold(colors.red('severe')),
+						colors.yellow(output.join(' ') + '\n' + colors.italic(get_stk())),
+					),
 				);
 			}
 		}
 	}
 
-	fatal(output: Error): void;
+	// fatal(output: Error): void;
 	fatal(...output: any[]) {
 		if (this.options.level.fatal) {
 			if (output instanceof Error) {
@@ -83,11 +97,14 @@ class Logger {
 				const get_stk = () => {
 					const obj = {};
 					Error.captureStackTrace(obj, this.fatal);
-					return (<{ stack: any }> obj).stack;
+					return (<{ stack: string }> obj).stack.slice(6);
 				};
 
-				console.log(
-					this.#build(colors.brightRed('fatal'), colors.red(output.join(' ') + '\n' + get_stk())),
+				console.error(
+					this.#build(
+						colors.bold(colors.brightRed('fatal')),
+						colors.red(output.join(' ') + '\n' + colors.italic(get_stk())),
+					),
 				);
 			}
 		}
